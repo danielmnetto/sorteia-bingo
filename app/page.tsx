@@ -64,8 +64,8 @@ export default function Home() {
 
   return (
     <main className="relative flex flex-col">
-      <div className="h-164 flex justify-center gap-6 mx-auto my-2 px-5 py-4 border-2 border-slate-200 rounded-2xl">
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-1 md:gap-2 h-104 sm:h-128 md:h-full overflow-auto pr-3">
+      <div className="flex justify-center gap-6 mx-auto my-2 px-5 py-4 border-2 border-slate-200 rounded-2xl">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-1 md:gap-2 h-132 overflow-auto pr-3">
           {Array.from({ length: qtdeNumeros }).map((numero, index) => {
             const numeroJaSorteado = numerosSorteados.some(
               (numero) => numero === index + 1
@@ -98,7 +98,7 @@ export default function Home() {
               {numeroSorteado?.toString().padStart(2, "0") ?? "--"}
             </p>
           </div>
-          <div className="border-2 bg-slate-50 border-slate-100 p-4 rounded-4xl h-84 md:h-96 flex flex-col">
+          <div className="border-2 bg-slate-50 border-slate-100 p-4 rounded-4xl h-84 flex flex-col">
             <p className="text-sm md:text-lg underline font-bold text-center mb-4">
               Números já sorteados
             </p>
