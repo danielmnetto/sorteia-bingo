@@ -19,7 +19,7 @@ export default function Home() {
   const [novaQtdeNumeros, setNovaQtdeNumeros] =
     useState<number>(QTDE_PADRAO_NUMEROS);
   const [qtdeNumeros, setQtdeNumeros] = useState<number>(novaQtdeNumeros);
-  const [vivaVozAtivada, setVivaVozAtivada] = useState<boolean>(true);
+  const [vivaVozAtivada, setVivaVozAtivada] = useState<boolean>(false);
 
   const pegarNumeroAleatorio = (minimo: number, maximo: number) => {
     minimo = Math.ceil(minimo);
@@ -123,15 +123,15 @@ export default function Home() {
             <p className="text-lg md:text-xl font-bold text-center text-slate-50 underline">
               Número da vez
             </p>
-            <p className="text-4xl md:text-9xl font-bold text-center text-slate-50">
+            <p className="text-4xl md:text-8xl font-bold text-center text-slate-50">
               {numeroSorteado?.toString().padStart(2, "0") ?? "--"}
             </p>
           </div>
-          <div className="border-2 bg-slate-100 border-slate-300 p-4 rounded-4xl h-84 flex flex-col shadow-lg">
+          <div className="w-60 h-76 border-2 bg-slate-100 border-slate-300 p-4 rounded-4xl flex flex-col shadow-lg">
             <p className="text-sm md:text-lg underline font-bold text-center mb-4">
               Números já sorteados
             </p>
-            <div className="flex-col items-center md:gap-2 overflow-auto">
+            <div className="flex-col items-center md:gap-2 overflow-auto pr-1">
               {numerosSorteados.length === 0 ? (
                 <p className="text-xs md:text-sm text-center italic text-slate-950">
                   Nenhum número sorteado
@@ -141,7 +141,7 @@ export default function Home() {
                   {numerosSorteados.map((numero, index) => (
                     <p
                       key={`sorteado-${index}-${numero}`}
-                      className="text-sm text-center md:text-2xl font-bold text-slate-950"
+                      className="text-sm md:text-xl text-center font-bold text-slate-950"
                     >
                       {numero.toString().padStart(2, "0")}
                     </p>
@@ -152,7 +152,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="sticky bottom-0 bg-slate-300 border-t-2 border-t-slate-300 flex flex-col items-center justify-center py-6 gap-3">
+      <div className="sticky bottom-0 bg-slate-300 border-t border-t-slate-300 flex flex-col items-center justify-center py-3 gap-3">
         <div className="flex gap-2 justify-center">
           <Button
             onClick={sortearNumero}
@@ -174,7 +174,7 @@ export default function Home() {
             <Label htmlFor="qtde-numeros">Qtde. Números</Label>
             <Input
               id="qtde-numeros"
-              className="w-24 border-slate-600"
+              className="w-18 border-slate-600"
               placeholder="Qtde. números"
               type="number"
               min={MINIMO_QTDE_NUMEROS}
