@@ -64,7 +64,7 @@ export default function Home() {
 
   return (
     <main className="relative flex flex-col">
-      <div className="flex justify-center gap-6 mx-auto my-2 px-5 py-4 border-2 border-slate-200 rounded-2xl">
+      <div className="h-164 flex justify-center gap-6 mx-auto my-2 px-5 py-4 border-2 border-slate-200 rounded-2xl">
         <div className="grid grid-cols-3 md:grid-cols-5 gap-1 md:gap-2 h-104 sm:h-128 md:h-full overflow-auto pr-3">
           {Array.from({ length: qtdeNumeros }).map((numero, index) => {
             const numeroJaSorteado = numerosSorteados.some(
@@ -92,9 +92,9 @@ export default function Home() {
           })}
         </div>
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col items-center border-2 border-slate-100 bg-emerald-200 px-4 md:px-6 py-2 md:py-4 md:gap-4 rounded-3xl md:rounded-4xl">
-            <p className="text-xl md:text-3xl font-bold text-center">Número:</p>
-            <p className="text-4xl md:text-7xl font-bold text-center">
+          <div className="flex flex-col items-center border-2 border-slate-100 bg-emerald-700 px-4 md:px-6 py-2 md:py-4 rounded-3xl md:rounded-4xl">
+            <p className="text-xl md:text-3xl font-bold text-center text-slate-50 underline">Número</p>
+            <p className="text-4xl md:text-8xl font-bold text-center text-slate-50">
               {numeroSorteado?.toString().padStart(2, "0") ?? "--"}
             </p>
           </div>
@@ -133,14 +133,6 @@ export default function Home() {
           <DicesIcon className="size-4" />
           <p>Sortear um número</p>
         </Button>
-        <Button
-          onClick={confirmarReiniciarSorteio}
-          variant="destructive"
-          size="lg"
-        >
-          <RotateCcw className="size-4" />
-          <p>Reiniciar sorteio</p>
-        </Button>
         <Input
           className="w-24 border-slate-600"
           placeholder="Qtde. números"
@@ -150,6 +142,14 @@ export default function Home() {
           defaultValue={QTDE_PADRAO_NUMEROS}
           onChange={(e) => setNovaQtdeNumeros(Number.parseInt(e.target.value))}
         />
+        <Button
+          onClick={confirmarReiniciarSorteio}
+          variant="destructive"
+          size="lg"
+        >
+          <RotateCcw className="size-4" />
+          <p>Reiniciar sorteio</p>
+        </Button>
       </div>
     </main>
   );
