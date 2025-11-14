@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <main className="relative flex flex-col">
       <div className="flex justify-center gap-6 mx-auto my-2 px-5 py-4 border-2 border-slate-200 rounded-2xl">
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-1 md:gap-2 h-132 overflow-auto pr-3">
+        <div className="grid grid-cols-3 md:grid-cols-7 gap-1 md:gap-2 h-132 overflow-auto pr-3">
           {Array.from({ length: qtdeNumeros }).map((numero, index) => {
             const numeroJaSorteado = numerosSorteados.some(
               (numero) => numero === index + 1
