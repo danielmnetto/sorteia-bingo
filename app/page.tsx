@@ -1,15 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { DicesIcon, RotateCcw } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
-import PatternDiamonds from "@/assets/pattern-diamonds.jpg";
-import Image from "next/image";
 
 const MINIMO_QTDE_NUMEROS = 2;
 const MAXIMO_QTDE_NUMEROS = 999;
@@ -94,6 +91,18 @@ export default function Home() {
 
   const todosNumerosForamSorteados = numerosSorteados.length >= qtdeNumeros;
 
+  useEffect(() => {
+    function beforeUnload(e: BeforeUnloadEvent) {
+      e.preventDefault();
+    }
+
+    window.addEventListener("beforeunload", beforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", beforeUnload);
+    };
+  }, [numerosSorteados]);
+
   return (
     <main className="h-screen relative flex flex-col bg-linear-to-b from-slate-100 to-slate-300">
       <div className="flex justify-center gap-6 mx-auto mt-2 mb-4 px-5 py-4">
@@ -147,16 +156,16 @@ export default function Home() {
                   : "Sortear um número"}
               </p>
             </Button>
-            <div className="flex flex-col gap-2 mt-16 items-center">
-              <div className="flex gap-1 items-center">
+            <div className="flex flex-col mt-16 bg-linear-to-b from-violet-200 to-violet-400">
+              <div className="flex gap-1 items-center justify-center p-2">
                 <Switch
                   id="ativar-viva-voz"
                   checked={vivaVozAtivada}
                   onCheckedChange={(checked) => alternarVivaVoz(checked)}
                 />
-                <Label htmlFor="ativar-viva-voz">Locutor</Label>
+                <Label htmlFor="ativar-viva-voz">Ativar locutor</Label>
               </div>
-              <div className="flex gap-2 items-center mt-8">
+              <div className="flex gap-2 items-center justify-center p-2  ">
                 <Label htmlFor="qtde-numeros">Qtde. Números</Label>
                 <Input
                   id="qtde-numeros"
@@ -171,74 +180,19 @@ export default function Home() {
                   }
                 />
               </div>
-              <Button
-                className=""
-                onClick={confirmarReiniciarSorteio}
-                variant="destructive"
-                size="lg"
-              >
-                <RotateCcw className="size-4" />
-                <p>Novo sorteio</p>
-              </Button>
             </div>
+            <Button
+              className="mt-8"
+              onClick={confirmarReiniciarSorteio}
+              variant="destructive"
+              size="lg"
+            >
+              <RotateCcw className="size-4" />
+              <p>Reiniciar sorteio</p>
+            </Button>
           </div>
-
-          {/* <div className="w-60 h-76 border-2 bg-slate-100 border-slate-300 p-4 rounded-4xl flex flex-col shadow-lg">
-            <p className="text-sm md:text-lg underline font-bold text-center mb-4">
-              Números já sorteados
-            </p>
-            <div className="flex-col items-center md:gap-2 overflow-auto pr-1">
-              {numerosSorteados.length === 0 ? (
-                <p className="text-xs md:text-sm text-center italic text-slate-950">
-                  Nenhum número sorteado
-                </p>
-              ) : (
-                <div className="grid grid-cols-4 gap-1">
-                  {numerosSorteados.map((numero, index) => (
-                    <p
-                      key={`sorteado-${index}-${numero}`}
-                      className="text-sm md:text-xl text-center font-bold text-slate-950"
-                    >
-                      {numero.toString().padStart(2, "0")}
-                    </p>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div> */}
         </div>
       </div>
-      {/* <div className="h-full sticky bottom-0 bg-linear-to-b from-slate-300 to-slate-400 border-t border-t-slate-300 flex flex-col items-center justify-start py-3 gap-3">
-        <div className="flex gap-2 justify-center"></div>
-        <Separator className="bg-slate-400" />
-        <div className="flex gap-2 justify-center">
-          <div className="flex gap-2 items-center">
-            <Label htmlFor="qtde-numeros">Qtde. Números</Label>
-            <Input
-              id="qtde-numeros"
-              className="w-18 border-slate-600"
-              placeholder="Qtde. números"
-              type="number"
-              min={MINIMO_QTDE_NUMEROS}
-              max={MAXIMO_QTDE_NUMEROS}
-              defaultValue={QTDE_PADRAO_NUMEROS}
-              onChange={(e) =>
-                setNovaQtdeNumeros(Number.parseInt(e.target.value))
-              }
-            />
-          </div>
-          <Separator className="bg-slate-400" orientation="vertical" />
-          <div className="flex gap-1 items-center">
-            <Switch
-              id="ativar-viva-voz"
-              checked={vivaVozAtivada}
-              onCheckedChange={(checked) => alternarVivaVoz(checked)}
-            />
-            <Label htmlFor="ativar-viva-voz">Viva-voz ligado</Label>
-          </div>
-          <Separator className="bg-slate-400" orientation="vertical" />
-        </div>
-      </div> */}
     </main>
   );
 }
