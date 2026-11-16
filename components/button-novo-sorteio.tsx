@@ -12,8 +12,9 @@ import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { useBingoContext } from "./context/bingo-context";
+import { BroomSparklesIcon } from "lucide-react";
 
-const ButtonReiniciarBingo = () => {
+const ButtonNovoSorteio = () => {
   const {
     minNumbers,
     maxNumbers,
@@ -25,25 +26,29 @@ const ButtonReiniciarBingo = () => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">Novo sorteio</Button>
+        <Button variant="destructive">
+          <BroomSparklesIcon className="size-5" />
+          <span>Novo sorteio</span>
+        </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogTitle>Começar um novo sorteio?</AlertDialogTitle>
         <AlertDialogDescription>
-          Toda a tabela de números será redefinida e não será possível desfazer a ação.
+          Defina uma quantidade de números para o novo sorteio. Ao criar um
+          sorteio, toda a tabela de números será redefinida e não será possível
+          desfazer a ação.
         </AlertDialogDescription>
         <div className="flex gap-2 items-center justify-between p-2">
           <Label htmlFor="qtde-numeros">Nova quantidade de números</Label>
           <Input
             id="qtde-numeros"
-            className="w-full border-slate-600"
-            placeholder="Padrão: 75"
+            className="w-24 border-slate-600"
+            placeholder="Escolha a quantidade de números desejada"
             type="number"
             min={minNumbers}
             max={maxNumbers}
             value={novaQtdeNumeros.toString()}
             onChange={(e) => {
-
               setNovaQtdeNumeros(Number.parseInt(e.target.value));
             }}
           />
@@ -51,7 +56,7 @@ const ButtonReiniciarBingo = () => {
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
           <AlertDialogAction onClick={reiniciarSorteio}>
-            Reiniciar sorteio
+            Criar sorteio
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
@@ -59,4 +64,4 @@ const ButtonReiniciarBingo = () => {
   );
 };
 
-export default ButtonReiniciarBingo;
+export default ButtonNovoSorteio;
