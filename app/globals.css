@@ -18,6 +18,7 @@
   --color-cartela-borda: var(--cartela-borda);
   --color-cartela-borda-b: var(--cartela-borda-b);
   --color-cartela-borda-sorteado: var(--cartela-borda-sorteado);
+  --color-cartela-borda-sorteado-b: var(--cartela-borda-sorteado-b);
   --color-cartela-borda-ultimo-sorteado: var(--cartela-borda-ultimo-sorteado);
   --color-cartela-borda-ultimo-sorteado-b: var(--cartela-borda-ultimo-sorteado-b);
   --color-cartela-texto: var(--cartela-numero);
@@ -66,7 +67,8 @@
   --cartela-fundo-ultimo-sorteado: oklch(69.6% 0.17 162.48);
   --cartela-borda: oklch(86.9% 0.022 252.894);
   --cartela-borda-b: oklch(70.4% 0.04 256.788);
-  --cartela-borda-sorteado: oklch(20.8% 0.042 265.755);
+  --cartela-borda-sorteado: oklch(27.9% 0.041 260.031);
+  --cartela-borda-sorteado-b: oklch(20.8% 0.042 265.755);
   --cartela-borda-ultimo-sorteado: oklch(59.6% 0.145 163.225);
   --cartela-borda-ultimo-sorteado-b: oklch(43.2% 0.095 166.913);
   --cartela-numero: oklch(37.2% 0.044 257.287);

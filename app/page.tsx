@@ -9,8 +9,8 @@ import ButtonSortearNumero from "@/components/button-sortear-numero";
 export default function Home() {
   return (
     <BingoContextProvider>
-      <main className="h-screen flex flex-col bg-slate-200">
-        <div className="w-full h-full flex gap-6 px-6 py-5">
+      <main className="h-dvh flex flex-col bg-slate-200">
+        <div className="w-full h-full flex gap-6 px-8 py-4">
           <div className="w-full h-full overflow-auto">
             <TabelaDeNumeros />
           </div>
