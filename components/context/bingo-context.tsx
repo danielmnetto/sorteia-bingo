@@ -7,7 +7,7 @@ import {
 } from "react";
 
 const MINIMO_QTDE_NUMEROS = 5;
-const MAXIMO_QTDE_NUMEROS = 500;
+const MAXIMO_QTDE_NUMEROS = 100;
 const QTDE_PADRAO_NUMEROS = 75;
 
 type BingoContextType = {
