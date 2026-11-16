@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const fontSans = Montserrat({
-  variable: "--font-geist-sans",
+const fontInter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body
-        className={`${fontSans.className} antialiased`}
+        className={`${fontInter.variable} antialiased`}
       >
         {children}
       </body>

@@ -4,10 +4,29 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-montserrat: var(--font-montserrat);
+  --font-inter: var(--font-inter);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --color-cartela-fundo: var(--cartela-fundo);
+  --color-cartela-fundo-sorteado: var(--cartela-fundo-sorteado);
+  --color-cartela-fundo-ultimo-sorteado: var(--cartela-fundo-ultimo-sorteado);
+  --color-cartela-borda: var(--cartela-borda);
+  --color-cartela-borda-b: var(--cartela-borda-b);
+  --color-cartela-borda-sorteado: var(--cartela-borda-sorteado);
+  --color-cartela-borda-ultimo-sorteado: var(--cartela-borda-ultimo-sorteado);
+  --color-cartela-borda-ultimo-sorteado-b: var(--cartela-borda-ultimo-sorteado-b);
+  --color-cartela-texto: var(--cartela-numero);
+  --color-cartela-texto-sorteado: var(--cartela-numero-sorteado);
+  --color-painel-numero-fundo: var(--painel-numero-fundo);
+  --color-painel-numero-texto: var(--painel-numero-texto);
+  --color-painel-numero-borda: var(--painel-numero-borda);
+  --color-painel-numero-borda-b: var(--painel-numero-borda-b);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -42,6 +61,21 @@
 }
 
 :root {
+  --cartela-fundo: oklch(92.9% 0.013 255.508);
+  --cartela-fundo-sorteado: oklch(37.2% 0.044 257.287);
+  --cartela-fundo-ultimo-sorteado: oklch(69.6% 0.17 162.48);
+  --cartela-borda: oklch(86.9% 0.022 252.894);
+  --cartela-borda-b: oklch(70.4% 0.04 256.788);
+  --cartela-borda-sorteado: oklch(20.8% 0.042 265.755);
+  --cartela-borda-ultimo-sorteado: oklch(59.6% 0.145 163.225);
+  --cartela-borda-ultimo-sorteado-b: oklch(43.2% 0.095 166.913);
+  --cartela-numero: oklch(37.2% 0.044 257.287);
+  --cartela-numero-sorteado: oklch(98.4% 0.003 247.858);
+  --painel-numero-fundo: oklch(69.6% 0.17 162.48);
+  --painel-numero-texto: oklch(98.4% 0.003 247.858);
+  --painel-numero-borda: oklch(59.6% 0.145 163.225);
+  --painel-numero-borda-b: oklch(43.2% 0.095 166.913);
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
