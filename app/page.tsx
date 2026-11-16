@@ -7,6 +7,7 @@ import PainelNumeroDaVez from "@/components/painel-numero-da-vez";
 import ButtonSortearNumero from "@/components/button-sortear-numero";
 import ButtonReiniciarSorteio from "@/components/button-reiniciar-sorteio";
 import ButtonNovoSorteio from "@/components/button-novo-sorteio";
+import ButtonEditarNumeros from "@/components/button-editar-numeros";
 
 export default function Home() {
   return (
@@ -22,9 +23,10 @@ export default function Home() {
               <ButtonSortearNumero />
             </div>
             <div className="flex flex-col gap-4">
+              <ButtonEditarNumeros />
               <div className="flex gap-2 items-center justify-between">
-                <ButtonConfiguracoesBingo />
                 <ButtonReiniciarSorteio />
+                <ButtonConfiguracoesBingo />
               </div>
               <ButtonNovoSorteio />
             </div>

@@ -29,10 +29,13 @@ type BingoContextType = {
   sortearNumero: () => void;
   reiniciarSorteio: () => void;
   alternarVivaVoz: (estado: boolean) => void;
+  alternarNumeroSorteado: (numero: number) => void;
   confirmarReiniciarSorteio: () => void;
   todosNumerosForamSorteados: boolean;
   configBingoAberto: boolean;
   setConfigBingoAberto: Dispatch<SetStateAction<boolean>>;
+  editarNumerosAtivo: boolean;
+  setEditarNumerosAtivo: Dispatch<SetStateAction<boolean>>;
 };
 
 const BingoContext = createContext<BingoContextType | null>(null);
@@ -55,6 +58,7 @@ const BingoContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [qtdeNumeros, setQtdeNumeros] = useState<number>(novaQtdeNumeros);
   const [vivaVozAtivada, setVivaVozAtivada] = useState<boolean>(false);
   const [configBingoAberto, setConfigBingoAberto] = useState<boolean>(false);
+  const [editarNumerosAtivo, setEditarNumerosAtivo] = useState<boolean>(false);
 
   const pegarNumeroAleatorio = (minimo: number, maximo: number) => {
     minimo = Math.ceil(minimo);
@@ -126,6 +130,21 @@ const BingoContextProvider = ({ children }: { children: React.ReactNode }) => {
     reiniciarSorteio();
   };
 
+  const alternarNumeroSorteado = (numero: number) => {
+    if (!numerosSorteados.includes(numero)) {
+      setNumerosSorteados([numero, ...numerosSorteados]);
+      return;
+    }
+    setNumerosSorteados(
+      numerosSorteados.filter(
+        (numeroJaSorteado) => numeroJaSorteado !== numero,
+      ),
+    );
+    if (numeroSorteado === numero) {
+      setNumeroSorteado(null);
+    }
+  };
+
   const todosNumerosForamSorteados = numerosSorteados.length >= qtdeNumeros;
 
   return (
@@ -149,10 +168,13 @@ const BingoContextProvider = ({ children }: { children: React.ReactNode }) => {
         sortearNumero,
         reiniciarSorteio,
         alternarVivaVoz,
+        alternarNumeroSorteado,
         confirmarReiniciarSorteio,
         todosNumerosForamSorteados,
         configBingoAberto,
         setConfigBingoAberto,
+        editarNumerosAtivo,
+        setEditarNumerosAtivo,
       }}
     >
       {children}
