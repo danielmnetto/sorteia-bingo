@@ -10,7 +10,6 @@ import { SettingsIcon } from "lucide-react";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
 import { Separator } from "./ui/separator";
-import ButtonNovoSorteio from "./button-novo-sorteio";
 import { useBingoContext } from "./context/bingo-context";
 
 const ButtonConfiguracoesBingo = () => {
@@ -53,8 +52,6 @@ const ButtonConfiguracoesBingo = () => {
               Quando ligado, um locutor irá anunciar os números sorteados.
             </p>
           </div>
-          <Separator />
-          <ButtonNovoSorteio />
         </div>
       </DialogContent>
     </Dialog>

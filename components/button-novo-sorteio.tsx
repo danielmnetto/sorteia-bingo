@@ -26,8 +26,8 @@ const ButtonNovoSorteio = () => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">
-          <BroomSparklesIcon className="size-5" />
+        <Button variant="destructive" size="xl">
+          <BroomSparklesIcon className="size-6" />
           <span>Novo sorteio</span>
         </Button>
       </AlertDialogTrigger>
