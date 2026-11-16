@@ -17,7 +17,7 @@ const ButtonReiniciarBingo = () => {
   const {
     minNumbers,
     maxNumbers,
-    defaultNumbers,
+    novaQtdeNumeros,
     setNovaQtdeNumeros,
     reiniciarSorteio,
   } = useBingoContext();
@@ -25,13 +25,12 @@ const ButtonReiniciarBingo = () => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">Reiniciar sorteio</Button>
+        <Button variant="destructive">Novo sorteio</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
-        <AlertDialogTitle>Reiniciar sorteio?</AlertDialogTitle>
+        <AlertDialogTitle>Começar um novo sorteio?</AlertDialogTitle>
         <AlertDialogDescription>
-          Tem certeza que deseja reiniciar o sorteio? Todos os números sorteados
-          serão perdidos e a tabela de números será atualizada.
+          Toda a tabela de números será redefinida e não será possível desfazer a ação.
         </AlertDialogDescription>
         <div className="flex gap-2 items-center justify-between p-2">
           <Label htmlFor="qtde-numeros">Nova quantidade de números</Label>
@@ -42,10 +41,11 @@ const ButtonReiniciarBingo = () => {
             type="number"
             min={minNumbers}
             max={maxNumbers}
-            defaultValue={defaultNumbers}
-            onChange={(e) =>
-              setNovaQtdeNumeros(Number.parseInt(e.target.value))
-            }
+            value={novaQtdeNumeros.toString()}
+            onChange={(e) => {
+
+              setNovaQtdeNumeros(Number.parseInt(e.target.value));
+            }}
           />
         </div>
         <AlertDialogFooter>

@@ -9,10 +9,12 @@ import ButtonSortearNumero from "@/components/button-sortear-numero";
 export default function Home() {
   return (
     <BingoContextProvider>
-      <main className="h-screen relative flex flex-col bg-linear-to-b from-slate-100 to-slate-300">
-        <div className="flex justify-center gap-6 mx-auto mt-2 mb-4 px-5 py-4">
-          <TabelaDeNumeros />
-          <div className="flex flex-col gap-4">
+      <main className="h-screen flex flex-col bg-slate-200">
+        <div className="w-full h-full flex gap-6 px-6 py-5">
+          <div className="w-full h-full overflow-auto">
+            <TabelaDeNumeros />
+          </div>
+          <div className="w-96 sticky flex flex-col gap-4">
             <PainelNumeroDaVez />
             <div className="h-full flex flex-col gap-4">
               <ButtonSortearNumero />
