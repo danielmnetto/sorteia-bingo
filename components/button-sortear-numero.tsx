@@ -12,12 +12,10 @@ const ButtonSortearNumero = () => {
       variant="default"
       size="xl"
     >
-      <DicesIcon className="size-4" />
-      <p>
-        {todosNumerosForamSorteados
-          ? "Todos os números foram sorteados"
-          : "Sortear um número"}
-      </p>
+      <DicesIcon className="size-6" />
+      <span>
+        {todosNumerosForamSorteados ? "Fim do sorteio" : "Sortear número"}
+      </span>
     </Button>
   );
 };

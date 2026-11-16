@@ -5,6 +5,7 @@ import TabelaDeNumeros from "@/components/tabela-numeros";
 import { BingoContextProvider } from "@/components/context/bingo-context";
 import PainelNumeroDaVez from "@/components/painel-numero-da-vez";
 import ButtonSortearNumero from "@/components/button-sortear-numero";
+import ButtonReiniciarSorteio from "@/components/button-reiniciar-sorteio";
 
 export default function Home() {
   return (
@@ -18,7 +19,10 @@ export default function Home() {
             <PainelNumeroDaVez />
             <div className="h-full flex flex-col gap-4">
               <ButtonSortearNumero />
-              <ButtonConfiguracoesBingo />
+              <div className="flex gap-2 items-center justify-between">
+                <ButtonConfiguracoesBingo />
+                <ButtonReiniciarSorteio />
+              </div>
             </div>
           </div>
         </div>
