@@ -8,6 +8,7 @@ import ButtonSortearNumero from "@/components/button-sortear-numero";
 import ButtonReiniciarSorteio from "@/components/button-reiniciar-sorteio";
 import ButtonNovoSorteio from "@/components/button-novo-sorteio";
 import ButtonEditarNumeros from "@/components/button-editar-numeros";
+import inicializarFuncoesLocalStorage from "@/components/hooks/inicializar-funcoes-local-storage";
 
 export default function Home() {
   return (
