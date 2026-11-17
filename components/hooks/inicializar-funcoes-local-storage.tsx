@@ -6,6 +6,8 @@ const STORAGE_KEY_CONFIG_LOCAL = "sorteia-bingo-config";
 
 const inicializarFuncoesLocalStorage = () => {
   const {
+    minNumbers,
+    maxNumbers,
     numerosSorteados,
     numeroSorteado,
     qtdeNumeros,
@@ -48,7 +50,11 @@ const inicializarFuncoesLocalStorage = () => {
     const config = localStorage.getItem(STORAGE_KEY_CONFIG_LOCAL);
 
     if (config) {
-      const { qtdeNumeros, vivaVozAtivada } = JSON.parse(config);
+      let { qtdeNumeros, vivaVozAtivada } = JSON.parse(config);
+
+      qtdeNumeros = Math.min(Math.max(qtdeNumeros, minNumbers), maxNumbers);
+      vivaVozAtivada = Boolean(vivaVozAtivada);
+
       setQtdeNumeros(qtdeNumeros);
       setVivaVozAtivada(vivaVozAtivada);
     }
